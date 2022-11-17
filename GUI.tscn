@@ -1,4 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fonts/Inter-Bold.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=3]
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 0.372549, 0.372549, 1 )
@@ -17,17 +26,31 @@ corner_radius_bottom_left = 5
 [node name="GUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = SubResource( 4 )
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -338.0
-margin_top = -37.0
-margin_right = -32.0
-margin_bottom = -32.0
+margin_left = -300.0
+margin_top = -49.0
+margin_right = -44.0
+margin_bottom = -44.0
 custom_styles/fg = SubResource( 1 )
 custom_styles/bg = SubResource( 2 )
 value = 100.0
 percent_visible = false
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -120.0
+margin_top = -88.0
+margin_right = -44.0
+margin_bottom = -68.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "score: 90"
+align = 2
