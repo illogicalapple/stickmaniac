@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://spawners/Spawner.gd" type="Script" id=1]
+
+[node name="Spawners" type="Node"]
+
+[node name="RockSpawner" type="Timer" parent="."]
+wait_time = 0.5
+script = ExtResource( 1 )
