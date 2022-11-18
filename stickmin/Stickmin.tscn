@@ -1,15 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://stickmin/Head.gd" type="Script" id=1]
 [ext_resource path="res://stickmin/head.svg" type="Texture" id=2]
 [ext_resource path="res://stickmin/Body.gd" type="Script" id=3]
 [ext_resource path="res://stickmin/Gun.gd" type="Script" id=4]
 [ext_resource path="res://stickmin/bullet/Bullet.tscn" type="PackedScene" id=5]
+[ext_resource path="res://stickmin/Stickmin.gd" type="Script" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 15.0
 
-[node name="Area2D" type="Area2D"]
+[node name="Stickmin" type="Area2D"]
+script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -31,4 +33,5 @@ bullet_scene = ExtResource( 5 )
 wait_time = 0.2
 autostart = true
 
+[connection signal="body_entered" from="." to="." method="_on_Stickmin_body_entered"]
 [connection signal="timeout" from="Head/Body/Gun/PewTimer" to="Head/Body/Gun" method="_on_PewTimer_timeout"]
