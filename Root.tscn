@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Root.gd" type="Script" id=1]
 [ext_resource path="res://stickmin/Stickmin.tscn" type="PackedScene" id=2]
 [ext_resource path="res://spawners/Spawners.tscn" type="PackedScene" id=3]
 [ext_resource path="res://GUI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://enemy/Enemy.tscn" type="PackedScene" id=5]
 
 [node name="Root" type="Node"]
 script = ExtResource( 1 )
@@ -15,3 +16,6 @@ grow_vertical = 2
 [node name="Stickmin" parent="." instance=ExtResource( 2 )]
 
 [node name="Spawners" parent="." instance=ExtResource( 3 )]
+
+[node name="Enemy" parent="." instance=ExtResource( 5 )]
+position = Vector2( 822, 231 )
