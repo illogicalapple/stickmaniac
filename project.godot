@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="stickmin shooter"
+config/name="stickmaniac"
 run/main_scene="res://Root.tscn"
 config/icon="res://icon.png"
 
