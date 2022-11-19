@@ -64,6 +64,13 @@ pew_pew={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="PlayerHurtbox"
+2d_physics/layer_3="EnemyHurtbox"
+2d_physics/layer_4="EnemyHitbox"
+2d_physics/layer_6="BulletHitbox"
+
 [physics]
 
 common/enable_pause_aware_picking=true

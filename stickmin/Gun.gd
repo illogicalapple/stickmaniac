@@ -25,8 +25,8 @@ func bulletify():
 	bullet.get_node("BulletLine").clear_points()
 	bullet.get_node("BulletLine").add_point(Vector2(0, 0))
 	bullet.get_node("BulletLine").add_point(bullet.linear_velocity / 60)
-	bullet.get_node("BulletCollisions").get_shape().set_a(Vector2(0, 0))
-	bullet.get_node("BulletCollisions").get_shape().set_b(bullet.linear_velocity / 60)
+	bullet.get_node("Hitbox/BulletCollisions").get_shape().set_a(Vector2(0, 0))
+	bullet.get_node("Hitbox/BulletCollisions").get_shape().set_b(bullet.linear_velocity / 60)
 	bullet.set_use_custom_integrator(true)
 	add_child(bullet)
 
