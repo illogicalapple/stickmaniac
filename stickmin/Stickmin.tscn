@@ -16,7 +16,7 @@ script = ExtResource( 6 )
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_mask = 8
 __meta__ = {
-"_editor_description_": "Player gets hurt when entered by enemy"
+"_editor_description_": ""
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
