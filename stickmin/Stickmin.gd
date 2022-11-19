@@ -3,7 +3,7 @@ extends KinematicBody2D
 signal damage(amount)
 
 func _process(_delta):
-	pass
+	emit_signal("damage", 0.1)
 
 func _on_Hurtbox_area_entered(body):
 	print("hurt")

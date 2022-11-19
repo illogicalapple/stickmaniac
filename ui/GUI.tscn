@@ -1,6 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://fonts/Inter-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://ui/music-enabled.png" type="Texture" id=2]
+[ext_resource path="res://ui/music-disabled.png" type="Texture" id=3]
+[ext_resource path="res://ui/GUI.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=3]
 outline_color = Color( 0, 0, 0, 1 )
@@ -23,10 +26,19 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="AnimatedTexture" id=5]
+flags = 4
+frames = 2
+fps = 0.0
+frame_0/texture = ExtResource( 2 )
+frame_1/texture = ExtResource( 3 )
+frame_1/delay_sec = 0.0
+
 [node name="GUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = SubResource( 4 )
+script = ExtResource( 4 )
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 anchor_left = 1.0
@@ -54,3 +66,15 @@ margin_bottom = -68.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "score: 90"
 align = 2
+
+[node name="MusicToggled" type="Button" parent="."]
+margin_left = 1.0
+margin_top = -2.0
+margin_right = 103.0
+margin_bottom = 97.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = SubResource( 5 )
+flat = true
+
+[connection signal="pressed" from="MusicToggled" to="." method="_on_MusicToggled_pressed"]
