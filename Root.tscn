@@ -27,5 +27,3 @@ script = ExtResource( 7 )
 
 [node name="Music" type="AudioStreamPlayer" parent="SoundPlayer"]
 stream = ExtResource( 6 )
-
-[connection signal="damage" from="Stickmin" to="GUI" method="_on_Stickmin_damage"]
