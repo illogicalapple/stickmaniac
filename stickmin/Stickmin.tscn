@@ -10,11 +10,8 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.1245
 
-[node name="Stickmin" type="Area2D"]
+[node name="Stickmin" type="KinematicBody2D"]
 script = ExtResource( 6 )
-
-[node name="Collisions" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
 
 [node name="Head" type="Sprite" parent="."]
 texture = ExtResource( 2 )
@@ -33,5 +30,15 @@ bullet_scene = ExtResource( 5 )
 wait_time = 0.2
 autostart = true
 
-[connection signal="body_entered" from="." to="." method="_on_Stickmin_body_entered"]
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_mask = 8
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource( 1 )
+
 [connection signal="timeout" from="Head/Body/Gun/PewTimer" to="Head/Body/Gun" method="_on_PewTimer_timeout"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="mouse_entered" from="Hurtbox" to="." method="_on_Hurtbox_mouse_entered"]
