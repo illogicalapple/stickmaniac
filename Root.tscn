@@ -16,7 +16,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Stickmin" parent="." instance=ExtResource( 2 )]
-mode = 3
 
 [node name="Spawners" parent="." instance=ExtResource( 3 )]
 

@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends KinematicBody2D
 
 onready var health_bar = $HealthBar
 
