@@ -64,7 +64,7 @@ margin_top = -88.0
 margin_right = -44.0
 margin_bottom = -68.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "score: 90"
+text = "score: 0"
 align = 2
 
 [node name="MusicToggled" type="Button" parent="."]
