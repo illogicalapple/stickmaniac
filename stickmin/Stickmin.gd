@@ -13,7 +13,6 @@ func _on_Hurtbox_area_entered(_body):
 	print("hurt")
 	emit_signal("damage", 10) # change damage amount later
 
-
 func _on_Hurtbox_mouse_entered():
 	emit_signal("damage", 20) # testing
 	print("mouse entered")

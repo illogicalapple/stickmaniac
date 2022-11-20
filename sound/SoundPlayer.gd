@@ -11,9 +11,9 @@ func _ready():
 func _on_Music_toggled():
 	if music_enabled:
 		music_enabled = false
-		music_button.icon.current_frame = 0
+		music_button.icon.current_frame = 0 #set to frame with X on music icon
 	else:
 		music_enabled = true
-		music_button.icon.current_frame = 1
+		music_button.icon.current_frame = 1 #set to frame with clear music icon
 	
 	$Music.playing = music_enabled
