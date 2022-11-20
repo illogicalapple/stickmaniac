@@ -10,7 +10,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.1245
 
-[node name="Stickmin" type="RigidBody2D"]
+[node name="Stickmin" type="KinematicBody2D"]
 script = ExtResource( 6 )
 
 [node name="Head" type="Sprite" parent="."]
@@ -37,6 +37,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+visible = false
 shape = SubResource( 1 )
 
 [connection signal="timeout" from="Head/Body/Gun/PewTimer" to="Head/Body/Gun" method="_on_PewTimer_timeout"]

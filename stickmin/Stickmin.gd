@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends KinematicBody2D
 
 signal damage(amount)
 
@@ -6,7 +6,7 @@ signal damage(amount)
 #	emit_signal("damage", 0.1) (was for testing)
 
 func _ready():
-	set_use_custom_integrator(true)
+	#set_use_custom_integrator(true)
 	print("ready")
 
 func _on_Hurtbox_area_entered(_body):
