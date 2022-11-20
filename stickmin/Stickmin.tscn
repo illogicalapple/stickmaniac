@@ -11,6 +11,9 @@
 radius = 16.1245
 
 [node name="Stickmin" type="RigidBody2D"]
+mode = 2
+contacts_reported = 1
+contact_monitor = true
 script = ExtResource( 6 )
 
 [node name="Head" type="Sprite" parent="."]
