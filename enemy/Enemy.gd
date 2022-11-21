@@ -8,6 +8,7 @@ var drop = preload("drops/laser/Laser.tscn")
 
 var health = 25
 var value = 43 # todo: make it random
+var height = 100
 
 func _ready():
 	health_bar.max_value = health

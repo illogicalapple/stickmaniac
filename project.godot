@@ -22,7 +22,7 @@ window/stretch/aspect="expand"
 
 [global]
 
-"low processor"=false
+"low processor"=true
 
 [input]
 
