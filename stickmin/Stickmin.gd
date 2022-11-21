@@ -9,10 +9,23 @@ func _ready():
 	#set_use_custom_integrator(true)
 	print("ready")
 
-func _on_Hurtbox_area_entered(_body):
+# func _on_Hurtbox_area_entered(_area):
+#	print("hurt")
+#	emit_signal("damage", 10) # change damage amount later
+
+# func _on_Hurtbox_mouse_entered():
+#	emit_signal("damage", 20) # testing
+#	print("mouse entered")
+
+
+func _on_Hurtbox_area_entered(_area):
 	print("hurt")
 	emit_signal("damage", 10) # change damage amount later
 
+
 func _on_Hurtbox_mouse_entered():
-	emit_signal("damage", 20) # testing
 	print("mouse entered")
+	emit_signal("damage", 20)
+
+func _process(_delta):
+	$Hurtbox.position = $Head.position
