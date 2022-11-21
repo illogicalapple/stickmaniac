@@ -11,6 +11,8 @@ var value = 43 # todo: make it random
 
 func _ready():
 	health_bar.max_value = health
+	$Hitbox.dps = 10
+	$Hitbox.damage = 15
 
 func suicide_bomb():
 	var drop_instance = drop.instance()
