@@ -22,11 +22,8 @@ func _ready():
 
 func _on_Hurtbox_area_entered(area):
 	emit_signal("damage", area.damage)
+	$Hurtbox/DPS.start()
 	dps = area.dps
-
-func _on_Hurtbox_mouse_entered():
-	print("mouse entered")
-	emit_signal("damage", 20)
 
 func _process(_delta):
 	$Hurtbox.position = $Head.position
