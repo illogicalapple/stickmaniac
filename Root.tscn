@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Root.gd" type="Script" id=1]
 [ext_resource path="res://stickmin/Stickmin.tscn" type="PackedScene" id=2]
 [ext_resource path="res://spawners/Spawners.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ui/GUI.tscn" type="PackedScene" id=4]
-[ext_resource path="res://enemy/Enemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://sound/game-music.mp3" type="AudioStream" id=6]
 [ext_resource path="res://sound/SoundPlayer.gd" type="Script" id=7]
 
@@ -18,9 +17,6 @@ grow_vertical = 2
 [node name="Stickmin" parent="." instance=ExtResource( 2 )]
 
 [node name="Spawners" parent="." instance=ExtResource( 3 )]
-
-[node name="Enemy" parent="." instance=ExtResource( 5 )]
-position = Vector2( 822, 231 )
 
 [node name="SoundPlayer" type="Node2D" parent="."]
 script = ExtResource( 7 )

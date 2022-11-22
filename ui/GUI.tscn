@@ -77,14 +77,4 @@ enabled_focus_mode = 0
 icon = SubResource( 5 )
 flat = true
 
-[node name="SpawnEnemy" type="Button" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -230.0
-margin_top = 40.0
-margin_right = -40.0
-margin_bottom = 66.0
-text = "spawn enemy (debug)"
-
 [connection signal="pressed" from="MusicToggled" to="." method="_on_MusicToggled_pressed"]
-[connection signal="pressed" from="SpawnEnemy" to="." method="_on_SpawnEnemy_pressed"]
