@@ -13,9 +13,9 @@ onready var foreground = $HealthBar.get("custom_styles/fg")
 signal music_toggled
 
 func _ready():
-	root.get_node("Stickmin").connect("damage", self, "_on_damage")
+	root.get_node("Stickmin").connect("damage", self, "_on_Stickmin_damage")
 
-func _on_damage(amount):
+func _on_Stickmin_damage(amount):
 	$HealthBar.value -= amount
 	if $HealthBar.value <= 33:
 		foreground.bg_color = Color("ff5f5f")
