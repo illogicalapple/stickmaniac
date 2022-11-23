@@ -68,13 +68,19 @@ text = "score: 0"
 align = 2
 
 [node name="MusicToggled" type="Button" parent="."]
-margin_left = 1.0
-margin_top = -2.0
-margin_right = 103.0
-margin_bottom = 97.0
+margin_left = 115.0
+margin_top = -4.0
+margin_right = 227.0
+margin_bottom = 102.0
 focus_mode = 0
 enabled_focus_mode = 0
 icon = SubResource( 5 )
 flat = true
+
+[node name="Menu" type="Button" parent="."]
+margin_top = 2.0
+margin_right = 114.0
+margin_bottom = 100.0
+text = "Quit to Menu"
 
 [connection signal="pressed" from="MusicToggled" to="." method="_on_MusicToggled_pressed"]
