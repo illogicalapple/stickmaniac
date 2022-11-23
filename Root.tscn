@@ -25,3 +25,4 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [connection signal="damage" from="Stickmin" to="GUI" method="_on_Stickmin_damage"]
+[connection signal="music_toggled" from="GUI" to="SoundPlayer" method="_on_GUI_music_toggled"]

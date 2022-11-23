@@ -18,7 +18,8 @@ func _ready():
 
 func _on_Stickmin_damage(amount):
 	$HealthBar.value -= amount
-	if $HealthBar.value <= 0.5:
+	if $HealthBar.value <= 0.1:
+		$Ded.show()
 		$AnimationPlayer.current_animation = "FadeIn"
 		$AnimationPlayer.play()
 	if $HealthBar.value <= 33:
@@ -33,7 +34,8 @@ func add_coins(amount):
 	score += amount
 	$Score.text = "score: " + str(score)
 
-
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "FadeIn":
+		global.song_time = get_tree().get_root().get_node("Root/SoundPlayer/Music").get_playback_position()
+		print(global.song_time)
 		get_tree().change_scene("res://death_screen/DeathScreen.tscn")
