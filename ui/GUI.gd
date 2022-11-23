@@ -13,10 +13,14 @@ onready var foreground = $HealthBar.get("custom_styles/fg")
 signal music_toggled
 
 func _ready():
+	$Ded.color = Color(255, 255, 255, 0)
 	root.get_node("Stickmin").connect("damage", self, "_on_Stickmin_damage")
 
 func _on_Stickmin_damage(amount):
 	$HealthBar.value -= amount
+	if $HealthBar.value <= 0.5:
+		$AnimationPlayer.current_animation = "FadeIn"
+		$AnimationPlayer.play()
 	if $HealthBar.value <= 33:
 		foreground.bg_color = Color("ff5f5f")
 	elif $HealthBar.value <= 66:
@@ -28,3 +32,8 @@ func _on_MusicToggled_pressed():
 func add_coins(amount):
 	score += amount
 	$Score.text = "score: " + str(score)
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "FadeIn":
+		get_tree().change_scene("res://death_screen/DeathScreen.tscn")

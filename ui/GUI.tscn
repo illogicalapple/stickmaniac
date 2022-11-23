@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://fonts/Inter-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://ui/music-enabled.png" type="Texture" id=2]
@@ -33,6 +33,36 @@ fps = 0.0
 frame_0/texture = ExtResource( 3 )
 frame_1/texture = ExtResource( 2 )
 frame_1/delay_sec = 0.0
+
+[sub_resource type="Animation" id=6]
+resource_name = "FadeIn"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ded:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 2.92817 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ded:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="GUI" type="Control"]
 anchor_right = 1.0
@@ -83,4 +113,13 @@ margin_right = 114.0
 margin_bottom = 100.0
 text = "Quit to Menu"
 
+[node name="Ded" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FadeIn = SubResource( 6 )
+anims/RESET = SubResource( 7 )
+
 [connection signal="pressed" from="MusicToggled" to="." method="_on_MusicToggled_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

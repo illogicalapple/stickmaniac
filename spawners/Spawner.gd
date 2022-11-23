@@ -24,5 +24,5 @@ func timeout():
 		else:
 			thing.position.x = screen_size.x + height
 		thing.position.y = rng.randf_range(-height, screen_size.y + height)
-	get_tree().get_root().get_node("Root").add_child(thing)
+	get_tree().get_root().get_node("Root").add_child_below_node(get_parent(), thing)
 	thing.connect("coins", get_tree().get_root().get_node("Root/GUI"), "add_coins")
