@@ -5,11 +5,15 @@ export (PackedScene) var what_to_spawn
 var rng = RandomNumberGenerator.new()
 var screen_size
 
+const cap = 10
+
 func _ready():
 	screen_size = get_parent().get_viewport_rect().size
 	rng.randomize()
 
 func timeout():
+	if global.enemy_count >= cap: return
+	global.enemy_count += 1
 	var thing = what_to_spawn.instance()
 	var height = thing.height
 	if rng.randi_range(0, 1) == 0:

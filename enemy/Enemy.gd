@@ -5,7 +5,7 @@ signal coins(amount)
 onready var health_bar = $HealthBar
 onready var foreground = health_bar.get("custom_styles/fg")
 
-var drop = preload("drops/laser/Laser.tscn")
+var drops = [ preload("drops/laser/Laser.tscn") ]
 var rng = RandomNumberGenerator.new()
 
 var max_health = 25
@@ -27,7 +27,8 @@ func _ready():
 	target = Vector2(rng.randf_range(-height / 2, height / 2), rng.randf_range(-height / 2, height / 2))
 
 func suicide_bomb():
-	var drop_instance = drop.instance()
+	var drop_instance = drops[randi() % drops.size()].instance()
+	global.enemy_count -= 1
 	drop_instance.position = position
 	get_tree().get_root().add_child(drop_instance) # todo: make it a small chance later
 	emit_signal("coins", value)

@@ -1,8 +1,8 @@
-<svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="9.5" cy="42.5" r="7.5" fill="black"/>
-<circle cx="40.5" cy="42.5" r="7.5" fill="black"/>
-<line x1="14.5" y1="6.5" x2="14.5" y2="41.5" stroke="black" stroke-width="5" stroke-linecap="round"/>
-<line x1="45.5" y1="6.5" x2="45.5" y2="41.5" stroke="black" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 1"/>
-<line x1="14.5" y1="6.5" x2="45.5" y2="6.5" stroke="black" stroke-width="5" stroke-linecap="round"/>
-<line x1="3.25127" y1="49.2132" x2="49.2132" y2="3.25126" stroke="#FF5F5F" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 1"/>
+<svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="7.5" cy="38.5" r="7.5" fill="black"/>
+<circle cx="38.5" cy="38.5" r="7.5" fill="black"/>
+<line x1="12.5" y1="2.5" x2="12.5" y2="37.5" stroke="black" stroke-width="5" stroke-linecap="round"/>
+<line x1="43.5" y1="2.5" x2="43.5" y2="37.5" stroke="black" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 1"/>
+<line x1="12.5" y1="2.5" x2="43.5" y2="2.5" stroke="black" stroke-width="5" stroke-linecap="round"/>
+<line x1="4" y1="41.8909" x2="42.8909" y2="3" stroke="#FF5F5F" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 1"/>
 </svg>
