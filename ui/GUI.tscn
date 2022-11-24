@@ -1,9 +1,12 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://fonts/Inter-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://ui/music/stopped.svg" type="Texture" id=2]
 [ext_resource path="res://ui/music/playing.svg" type="Texture" id=3]
 [ext_resource path="res://ui/GUI.gd" type="Script" id=4]
+[ext_resource path="res://addons/controller_icons/objects/TextureRect.gd" type="Script" id=5]
+[ext_resource path="res://addons/controller_icons/assets/xbox360/l_stick.png" type="Texture" id=6]
+[ext_resource path="res://addons/controller_icons/assets/key/space.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=3]
 outline_color = Color( 0, 0, 0, 1 )
@@ -98,20 +101,96 @@ text = "score: 0"
 align = 2
 
 [node name="MusicToggled" type="Button" parent="."]
-margin_left = 115.0
-margin_top = -4.0
-margin_right = 227.0
-margin_bottom = 102.0
+margin_left = 56.0
+margin_top = 56.0
+margin_right = 114.0
+margin_bottom = 108.0
 focus_mode = 0
 enabled_focus_mode = 0
 icon = SubResource( 8 )
 flat = true
 
 [node name="Menu" type="Button" parent="."]
+visible = false
 margin_top = 2.0
 margin_right = 114.0
 margin_bottom = 100.0
 text = "Quit to Menu"
+
+[node name="Help" type="VBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -144.0
+margin_top = 56.0
+margin_right = -56.0
+margin_bottom = 96.0
+
+[node name="Move" type="HBoxContainer" parent="Help"]
+margin_right = 92.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( -936, 112 )
+
+[node name="TextureRect" type="TextureRect" parent="Help/Move"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+texture = ExtResource( 6 )
+expand = true
+script = ExtResource( 5 )
+path = "joypad/l_stick"
+
+[node name="Label" type="Label" parent="Help/Move"]
+margin_left = 44.0
+margin_top = 10.0
+margin_right = 88.0
+margin_bottom = 30.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "move"
+
+[node name="Shoot" type="HBoxContainer" parent="Help"]
+margin_top = 44.0
+margin_right = 92.0
+margin_bottom = 84.0
+rect_pivot_offset = Vector2( -936, 112 )
+
+[node name="TextureRect" type="TextureRect" parent="Help/Shoot"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+texture = ExtResource( 7 )
+expand = true
+script = ExtResource( 5 )
+path = "pew_pew"
+
+[node name="Label" type="Label" parent="Help/Shoot"]
+margin_left = 44.0
+margin_top = 10.0
+margin_right = 89.0
+margin_bottom = 30.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "shoot"
+
+[node name="Pause" type="HBoxContainer" parent="Help"]
+margin_top = 88.0
+margin_right = 92.0
+margin_bottom = 128.0
+rect_pivot_offset = Vector2( -936, 112 )
+
+[node name="TextureRect" type="TextureRect" parent="Help/Pause"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+expand = true
+script = ExtResource( 5 )
+path = "ui_pause"
+
+[node name="Label" type="Label" parent="Help/Pause"]
+margin_left = 44.0
+margin_top = 10.0
+margin_right = 92.0
+margin_bottom = 30.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "pause"
 
 [node name="Ded" type="ColorRect" parent="."]
 visible = false
