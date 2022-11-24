@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://fonts/Inter-Bold.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://ui/music-enabled.png" type="Texture" id=2]
-[ext_resource path="res://ui/music-disabled.png" type="Texture" id=3]
+[ext_resource path="res://ui/music/stopped.svg" type="Texture" id=2]
+[ext_resource path="res://ui/music/playing.svg" type="Texture" id=3]
 [ext_resource path="res://ui/GUI.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=3]
@@ -26,12 +26,12 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="AnimatedTexture" id=5]
+[sub_resource type="AnimatedTexture" id=8]
 flags = 4
 frames = 2
 fps = 0.0
-frame_0/texture = ExtResource( 3 )
-frame_1/texture = ExtResource( 2 )
+frame_0/texture = ExtResource( 2 )
+frame_1/texture = ExtResource( 3 )
 frame_1/delay_sec = 0.0
 
 [sub_resource type="Animation" id=6]
@@ -104,7 +104,7 @@ margin_right = 227.0
 margin_bottom = 102.0
 focus_mode = 0
 enabled_focus_mode = 0
-icon = SubResource( 5 )
+icon = SubResource( 8 )
 flat = true
 
 [node name="Menu" type="Button" parent="."]
