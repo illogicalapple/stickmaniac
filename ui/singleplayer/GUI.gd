@@ -18,7 +18,7 @@ func _ready():
 	root.get_node("Stickmin").connect("damage", self, "_on_Stickmin_damage")
 	$Paused.hide()
 
-func _on_Stickmin_damage(amount):
+func _on_Stickmin_damage(id, amount):
 	$HealthBar.value -= amount
 	if $HealthBar.value <= 0.1:
 		$Ded.show()
@@ -28,6 +28,8 @@ func _on_Stickmin_damage(amount):
 		foreground.bg_color = Color("ff5f5f")
 	elif $HealthBar.value <= 66:
 		foreground.bg_color = Color("ffdc3b")
+	else:
+		foreground.bg_color = Color("56c24a")
 
 func _on_MusicToggled_pressed():
 	emit_signal("music_toggled")

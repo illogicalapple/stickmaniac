@@ -1,8 +1,9 @@
 extends KinematicBody2D
 
 var dps = 0
+export var id = 0
 
-signal damage(amount)
+signal damage(id, amount)
 
 # func _process(_delta):
 #	emit_signal("damage", 0.1) (was for testing)
@@ -21,16 +22,18 @@ func _ready():
 
 
 func _on_Hurtbox_area_entered(area):
-	emit_signal("damage", area.damage)
+	emit_signal("damage", id, area.damage)
 	$Hurtbox/DPS.start()
 	dps = area.dps
 
 func _process(_delta):
 	$Hurtbox.position = $Head.position
-	emit_signal("damage", -0.02)
+	$Head.id = id
+	$Head/Body/Gun.id = id
+	emit_signal("damage", id, -0.02)
 
 func _on_DPS_timeout():
-	emit_signal("damage", dps / 2)
+	emit_signal("damage", id, dps / 2)
 
 func _on_Hurtbox_area_exited(_area):
 	dps = 0

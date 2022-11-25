@@ -1,20 +1,14 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://fonts/Inter-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://ui/music/stopped.svg" type="Texture" id=2]
 [ext_resource path="res://ui/music/playing.svg" type="Texture" id=3]
-[ext_resource path="res://ui/GUI.gd" type="Script" id=4]
+[ext_resource path="res://ui/singleplayer/GUI.gd" type="Script" id=4]
 [ext_resource path="res://addons/controller_icons/objects/TextureRect.gd" type="Script" id=5]
 [ext_resource path="res://addons/controller_icons/assets/xbox360/l_stick.png" type="Texture" id=6]
 [ext_resource path="res://addons/controller_icons/assets/key/space.png" type="Texture" id=7]
 [ext_resource path="res://addons/controller_icons/assets/key/esc.png" type="Texture" id=8]
-
-[sub_resource type="DynamicFont" id=3]
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
-
-[sub_resource type="Theme" id=4]
-default_font = SubResource( 3 )
+[ext_resource path="res://fonts/theme.tres" type="Theme" id=9]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.337255, 0.760784, 0.290196, 1 )
@@ -107,7 +101,7 @@ tracks/0/keys = {
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = SubResource( 4 )
+theme = ExtResource( 9 )
 script = ExtResource( 4 )
 
 [node name="HealthBar" type="ProgressBar" parent="."]

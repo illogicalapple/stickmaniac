@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://stickmin/Head.gd" type="Script" id=1]
 [ext_resource path="res://stickmin/head.svg" type="Texture" id=2]
@@ -6,11 +6,18 @@
 [ext_resource path="res://stickmin/Gun.gd" type="Script" id=4]
 [ext_resource path="res://stickmin/bullet/Bullet.tscn" type="PackedScene" id=5]
 [ext_resource path="res://stickmin/Stickmin.gd" type="Script" id=6]
+[ext_resource path="res://fonts/theme.tres" type="Theme" id=7]
+[ext_resource path="res://fonts/Inter-Bold.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=2]
+size = 12
+font_data = ExtResource( 8 )
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.1245
 
 [node name="Stickmin" type="KinematicBody2D"]
+process_priority = 1
 script = ExtResource( 6 )
 
 [node name="Head" type="Sprite" parent="."]
@@ -29,6 +36,17 @@ bullet_scene = ExtResource( 5 )
 [node name="PewTimer" type="Timer" parent="Head/Body/Gun"]
 wait_time = 0.2
 autostart = true
+
+[node name="Label" type="Label" parent="Head"]
+margin_left = -15.0
+margin_top = -35.0
+margin_right = 15.0
+margin_bottom = -15.0
+theme = ExtResource( 7 )
+custom_colors/font_color = Color( 1, 0.372549, 0.372549, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "p1"
+align = 1
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_mask = 8

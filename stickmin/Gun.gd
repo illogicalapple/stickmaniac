@@ -7,6 +7,7 @@ var direction = 0
 var gun_pos = Vector2(0, 0)
 var shooty = Vector2(0, 0)
 var bullet_vel = Vector2(0, 0)
+var id = 0
 
 func _ready():
 	default_color = "#000"
@@ -39,11 +40,10 @@ func draw():
 	
 func _process(_delta):
 	draw()
-	if Input.is_action_just_pressed("pew_pew"):
+	if Input.is_action_just_pressed("pew_pew" + str(id)):
 		bulletify()
 		$PewTimer.set_wait_time(0.2)
 
-
 func _on_PewTimer_timeout():
-	if Input.is_action_pressed("pew_pew"):
+	if Input.is_action_pressed("pew_pew" + str(id)):
 		bulletify()
