@@ -1,6 +1,7 @@
 extends Node
 
 var stickmin_scene = preload("res://stickmin/Stickmin.tscn")
+var healthbar_scene = preload("res://ui/HealthBar.tscn")
 
 var player_position = Vector2(0, 0)
 
@@ -16,7 +17,7 @@ func _ready():
 	var joypads = Input.get_connected_joypads()
 	var length = len(joypads)
 	if length <= 1:
-		pass # show a warning; not enough players
+		create_player(Vector2(0, 0), 0)
 	elif length > 4:
 		pass # show a warning; too many players
 	else:
@@ -42,6 +43,27 @@ func _ready():
 					create_player(Vector2(0, 500), i)
 				else:
 					create_player(Vector2(500, 500), i)
+	for i in range(length):
+		var healthbar = healthbar_scene.duplicate(true).instance()
+		var id_color = ""
+		# healthbar.rect_size.y = 5
+		if length == 2 or length == 3:
+			healthbar.rect_size.x = 170.7
+			healthbar.rect_position.x -= (i * 205.7) - 85.3
+		elif length == 4:
+			healthbar.rect_size.x = 140
+			healthbar.rect_position.x -= (i * 175) - 116
+		healthbar.rect_position.y += 9
+		print(healthbar.rect_size)
+		healthbar.name = "HealthBar" + str(i)
+		healthbar.id = length - i - 1
+		match healthbar.id:
+			0: id_color = "ff5f5f"
+			1: id_color = "5a95ed"
+			2: id_color = "56c24a"
+			3: id_color = "ffdc3b"
+		healthbar.get_node("ID").add_color_override("font_color", Color(id_color))
+		$GUI.add_child(healthbar)
 
 # func _process(_delta):
 #	player_position = $Stickmin/Head.position

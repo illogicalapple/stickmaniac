@@ -1,28 +1,14 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://fonts/Inter-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://ui/music/stopped.svg" type="Texture" id=2]
 [ext_resource path="res://ui/music/playing.svg" type="Texture" id=3]
 [ext_resource path="res://ui/singleplayer/GUI.gd" type="Script" id=4]
 [ext_resource path="res://addons/controller_icons/objects/TextureRect.gd" type="Script" id=5]
-[ext_resource path="res://addons/controller_icons/assets/xbox360/l_stick.png" type="Texture" id=6]
-[ext_resource path="res://addons/controller_icons/assets/key/space.png" type="Texture" id=7]
+[ext_resource path="res://ui/help/Help.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ui/HealthBar.tscn" type="PackedScene" id=7]
 [ext_resource path="res://addons/controller_icons/assets/key/esc.png" type="Texture" id=8]
 [ext_resource path="res://fonts/theme.tres" type="Theme" id=9]
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.337255, 0.760784, 0.290196, 1 )
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.784314, 0.784314, 0.784314, 1 )
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
 
 [sub_resource type="AnimatedTexture" id=8]
 flags = 4
@@ -104,32 +90,7 @@ anchor_bottom = 1.0
 theme = ExtResource( 9 )
 script = ExtResource( 4 )
 
-[node name="HealthBar" type="ProgressBar" parent="."]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -312.0
-margin_top = -61.0
-margin_right = -56.0
-margin_bottom = -56.0
-custom_styles/fg = SubResource( 1 )
-custom_styles/bg = SubResource( 2 )
-value = 100.0
-percent_visible = false
-
-[node name="Score" type="Label" parent="."]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -132.0
-margin_top = -100.0
-margin_right = -56.0
-margin_bottom = -80.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "score: 0"
-align = 2
+[node name="HealthBar" parent="." instance=ExtResource( 7 )]
 
 [node name="MusicToggled" type="Button" parent="."]
 margin_left = 56.0
@@ -148,81 +109,7 @@ margin_right = 114.0
 margin_bottom = 100.0
 text = "Quit to Menu"
 
-[node name="Help" type="VBoxContainer" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -144.0
-margin_top = 56.0
-margin_right = -56.0
-margin_bottom = 96.0
-
-[node name="Move" type="HBoxContainer" parent="Help"]
-margin_right = 92.0
-margin_bottom = 40.0
-rect_pivot_offset = Vector2( -936, 112 )
-
-[node name="TextureRect" type="TextureRect" parent="Help/Move"]
-margin_right = 40.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 40, 40 )
-texture = ExtResource( 6 )
-expand = true
-script = ExtResource( 5 )
-path = "joypad/l_stick"
-
-[node name="Label" type="Label" parent="Help/Move"]
-margin_left = 44.0
-margin_top = 10.0
-margin_right = 88.0
-margin_bottom = 30.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "move"
-
-[node name="Shoot" type="HBoxContainer" parent="Help"]
-margin_top = 44.0
-margin_right = 92.0
-margin_bottom = 84.0
-rect_pivot_offset = Vector2( -936, 112 )
-
-[node name="TextureRect" type="TextureRect" parent="Help/Shoot"]
-margin_right = 40.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 40, 40 )
-texture = ExtResource( 7 )
-expand = true
-script = ExtResource( 5 )
-path = "pew_pew"
-
-[node name="Label" type="Label" parent="Help/Shoot"]
-margin_left = 44.0
-margin_top = 10.0
-margin_right = 89.0
-margin_bottom = 30.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "shoot"
-
-[node name="Pause" type="HBoxContainer" parent="Help"]
-margin_top = 88.0
-margin_right = 92.0
-margin_bottom = 128.0
-rect_pivot_offset = Vector2( -936, 112 )
-
-[node name="TextureRect" type="TextureRect" parent="Help/Pause"]
-margin_right = 40.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 40, 40 )
-texture = ExtResource( 8 )
-expand = true
-script = ExtResource( 5 )
-path = "ui_pause"
-
-[node name="Label" type="Label" parent="Help/Pause"]
-margin_left = 44.0
-margin_top = 10.0
-margin_right = 92.0
-margin_bottom = 30.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "pause"
+[node name="Help" parent="." instance=ExtResource( 6 )]
 
 [node name="Paused" type="ColorRect" parent="."]
 anchor_right = 1.0

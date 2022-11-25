@@ -3,7 +3,6 @@ extends KinematicBody2D
 signal coins(amount)
 
 onready var health_bar = $HealthBar
-onready var foreground = health_bar.get("custom_styles/fg")
 
 var drops = [ preload("drops/laser/Laser.tscn") ]
 var rng = RandomNumberGenerator.new()
@@ -39,10 +38,6 @@ func _on_Hurtbox_area_entered(area):
 	health_bar.value = health
 	if health <= 0:
 		suicide_bomb()
-	elif health <= 0.33 * max_health:
-		foreground.bg_color = Color("ff5f5f")
-	elif health <= 0.66 * max_health:
-		foreground.bg_color = Color("ffdc3b")
 	health_bar.visible = true
 
 func _process(_delta):

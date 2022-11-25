@@ -24,19 +24,13 @@ func _on_Stickmin_damage(id, amount):
 		$Ded.show()
 		$Ded/AnimationPlayer.current_animation = "FadeIn"
 		$Ded/AnimationPlayer.play()
-	if $HealthBar.value <= 33:
-		foreground.bg_color = Color("ff5f5f")
-	elif $HealthBar.value <= 66:
-		foreground.bg_color = Color("ffdc3b")
-	else:
-		foreground.bg_color = Color("56c24a")
 
 func _on_MusicToggled_pressed():
 	emit_signal("music_toggled")
 
 func add_coins(amount):
 	score += amount
-	$Score.text = "score: " + str(score)
+	$HealthBar/Score.text = "score: " + str(score)
 
 func on_dead_anim_finished(anim_name):
 	if anim_name == "FadeIn":
