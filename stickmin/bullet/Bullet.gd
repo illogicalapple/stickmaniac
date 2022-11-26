@@ -8,6 +8,7 @@ var bullet_owner = null
 func _ready():
 	hitbox.dps = damage
 	hitbox.owner_id = bullet_owner
+	hitbox.damage = damage
 
 func _physics_process(_delta):
 	position += linear_velocity / 60

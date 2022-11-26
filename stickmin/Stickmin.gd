@@ -22,10 +22,9 @@ func _ready():
 
 
 func _on_Hurtbox_area_entered(area):
-	if area.owner_id != id:
-		emit_signal("damage", id, area.damage)
-		$Hurtbox/DPS.start()
-		dps = area.dps
+	emit_signal("damage", id, area.damage)
+	$Hurtbox/DPS.start()
+	dps = area.dps
 
 func _process(_delta):
 	$Hurtbox.position = $Head.position
@@ -35,8 +34,15 @@ func _process(_delta):
 	emit_signal("damage", id, -0.02)
 
 func _on_DPS_timeout():
-	emit_signal("damage", id, dps / 2)
+	if dps > 0: emit_signal("damage", id, dps / 2)
 
 func _on_Hurtbox_area_exited(_area):
 	dps = 0
 
+func _on_BulletHurtbox_area_entered(area):
+	if not "bullet" in area:
+		return
+	if global.singleplayer:
+		return
+	if area.owner_id != id:
+		emit_signal("damage", id, area.damage)

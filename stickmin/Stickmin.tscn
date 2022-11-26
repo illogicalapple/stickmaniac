@@ -75,14 +75,8 @@ __meta__ = {
 position = Vector2( 0, 16 )
 shape = SubResource( 3 )
 
-[node name="DPS" type="Timer" parent="BulletHurtbox"]
-wait_time = 0.5
-autostart = true
-
 [connection signal="timeout" from="Head/Body/Gun/PewTimer" to="Head/Body/Gun" method="_on_PewTimer_timeout"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="area_exited" from="Hurtbox" to="." method="_on_Hurtbox_area_exited"]
 [connection signal="timeout" from="Hurtbox/DPS" to="." method="_on_DPS_timeout"]
-[connection signal="area_entered" from="BulletHurtbox" to="." method="_on_Hurtbox_area_entered"]
-[connection signal="area_exited" from="BulletHurtbox" to="." method="_on_Hurtbox_area_exited"]
-[connection signal="timeout" from="BulletHurtbox/DPS" to="." method="_on_DPS_timeout"]
+[connection signal="area_entered" from="BulletHurtbox" to="." method="_on_BulletHurtbox_area_entered"]

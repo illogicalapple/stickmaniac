@@ -9,6 +9,7 @@ func create_player(position, id):
 	var player_instance = stickmin_scene.instance()
 	player_instance.id = id
 	player_instance.get_node("Head").position = position
+	player_instance.name = "Player" + str(id)
 	add_child(player_instance)
 
 func _ready():
@@ -67,6 +68,7 @@ func _ready():
 			3: id_color = "ffdc3b"
 		healthbar.get_node("ID").add_color_override("font_color", Color(id_color))
 		$GUI.add_child(healthbar)
+		get_node("Player" + str(healthbar.id)).connect("damage", healthbar, "_on_damage")
 
 # func _process(_delta):
 #	player_position = $Stickmin/Head.position

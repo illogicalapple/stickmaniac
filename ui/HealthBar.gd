@@ -11,9 +11,7 @@ func _ready():
 		$ID.text = "p" + str(id + 1)
 
 func _process(_delta):
-	if value <= 33:
-		foreground.bg_color = Color("ff5f5f")
-	elif value <= 66:
-		foreground.bg_color = Color("ffdc3b")
-	else:
-		foreground.bg_color = Color("56c24a")
+	foreground.bg_color = Color("56c24a")
+
+func _on_damage(id, amount):
+	value -= amount

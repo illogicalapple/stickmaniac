@@ -14,6 +14,7 @@ var height = 75
 var speed = 0.6
 var velocity = Vector2(0, 0)
 var target = Vector2(0, 0) # make it so enemies don't clump together; every enemy has a slightly different target
+var owner_id = "NOT A BULLET YOU IDIOT"
 
 func _ready():
 	rng.randomize()
