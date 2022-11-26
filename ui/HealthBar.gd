@@ -15,3 +15,4 @@ func _process(_delta):
 
 func _on_damage(id, amount):
 	value -= amount
+	if value <= 0: get_parent().get_parent().get_node("Player" + str(id)).queue_free() # polish death code later
