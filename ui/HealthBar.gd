@@ -6,7 +6,7 @@ export var id = -1
 func _ready():
 	rect_size.y = 5
 	if id == -1:
-		$ID.remove()
+		$ID.queue_free()
 	else:
 		$ID.text = "p" + str(id + 1)
 
