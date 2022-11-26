@@ -21,6 +21,7 @@ func abc(angle, multiplier):
 	
 func bulletify():
 	var bullet = bullet_scene.instance()
+	bullet.bullet_owner = id
 	bullet.position = shooty
 	bullet.linear_velocity = (abc(direction + 90, 20) if gun_arm == 1 else abc(direction - 90, 20)) * 60
 	bullet.get_node("BulletLine").clear_points()

@@ -1,11 +1,13 @@
 extends RigidBody2D
 
 onready var hitbox = $Hitbox
-
 onready var damage = 5
 
+var bullet_owner = null
+
 func _ready():
-	hitbox.damage = damage
+	hitbox.dps = damage
+	hitbox.owner_id = bullet_owner
 
 func _physics_process(_delta):
 	position += linear_velocity / 60

@@ -22,9 +22,10 @@ func _ready():
 
 
 func _on_Hurtbox_area_entered(area):
-	emit_signal("damage", id, area.damage)
-	$Hurtbox/DPS.start()
-	dps = area.dps
+	if area.owner_id != id:
+		emit_signal("damage", id, area.damage)
+		$Hurtbox/DPS.start()
+		dps = area.dps
 
 func _process(_delta):
 	$Hurtbox.position = $Head.position
@@ -37,3 +38,4 @@ func _on_DPS_timeout():
 
 func _on_Hurtbox_area_exited(_area):
 	dps = 0
+
