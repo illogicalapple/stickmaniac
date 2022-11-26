@@ -16,7 +16,9 @@ func _ready():
 	global.singleplayer = false
 	var joypads = Input.get_connected_joypads()
 	var length = len(joypads)
-	#length += 1 FOR SINGLE CONTROLLER TESTING
+	
+	#length += 1 #FOR SINGLE CONTROLLER TESTING
+	
 	if length <= 1:
 		create_player(Vector2(0, 0), 0)
 	elif length > 4:

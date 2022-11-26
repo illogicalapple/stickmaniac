@@ -29,6 +29,7 @@ func _on_Hurtbox_area_entered(area):
 
 func _process(_delta):
 	$Hurtbox.position = $Head.position
+	$BulletHurtbox.position = $Head.position
 	$Head.id = id
 	$Head/Body/Gun.id = id
 	emit_signal("damage", id, -0.02)

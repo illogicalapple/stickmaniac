@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://stickmin/Head.gd" type="Script" id=1]
 [ext_resource path="res://stickmin/head.svg" type="Texture" id=2]
@@ -15,6 +15,10 @@ font_data = ExtResource( 8 )
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.1245
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 13.0
+height = 38.0
 
 [node name="Stickmin" type="KinematicBody2D"]
 process_priority = 1
@@ -61,7 +65,24 @@ shape = SubResource( 1 )
 wait_time = 0.5
 autostart = true
 
+[node name="BulletHurtbox" type="Area2D" parent="."]
+collision_mask = 32
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletHurtbox"]
+position = Vector2( 0, 16 )
+shape = SubResource( 3 )
+
+[node name="DPS" type="Timer" parent="BulletHurtbox"]
+wait_time = 0.5
+autostart = true
+
 [connection signal="timeout" from="Head/Body/Gun/PewTimer" to="Head/Body/Gun" method="_on_PewTimer_timeout"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="area_exited" from="Hurtbox" to="." method="_on_Hurtbox_area_exited"]
 [connection signal="timeout" from="Hurtbox/DPS" to="." method="_on_DPS_timeout"]
+[connection signal="area_entered" from="BulletHurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="area_exited" from="BulletHurtbox" to="." method="_on_Hurtbox_area_exited"]
+[connection signal="timeout" from="BulletHurtbox/DPS" to="." method="_on_DPS_timeout"]
