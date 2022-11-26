@@ -22,7 +22,7 @@ func _ready():
 
 
 func _on_Hurtbox_area_entered(area):
-	if area.owner_id:
+	if area.owner_id != null:
 		if area.owner_id != id:
 			emit_signal("damage", id, area.damage)
 			$Hurtbox/DPS.start()
