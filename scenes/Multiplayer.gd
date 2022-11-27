@@ -10,7 +10,7 @@ func create_player(position, id):
 	player_instance.id = id
 	player_instance.get_node("Head").position = position
 	player_instance.name = "Player" + str(id)
-	add_child(player_instance)
+	add_child_below_node($Players, player_instance)
 
 func _ready():
 	Engine.set_target_fps(60)

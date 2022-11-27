@@ -27,10 +27,10 @@ func _ready():
 	target = Vector2(rng.randf_range(-height / 2, height / 2), rng.randf_range(-height / 2, height / 2))
 
 func suicide_bomb():
-	var drop_instance = drops[randi() % drops.size()].instance()
+	# var drop_instance = drops[randi() % drops.size()].instance()
 	global.enemy_count -= 1
-	drop_instance.position = position
-	get_tree().get_root().add_child_below_node(get_tree().get_root().get_node("Root/Stickmin"), drop_instance) # todo: make it a small chance later
+	# drop_instance.position = position
+	# get_tree().get_root().add_child_below_node(get_tree().get_root().get_node("Root/Stickmin"), drop_instance) # todo: make it a small chance later
 	emit_signal("coins", value)
 	queue_free()
 

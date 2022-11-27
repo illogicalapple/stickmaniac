@@ -51,7 +51,7 @@ _global_script_class_icons={
 [application]
 
 config/name="stickmaniac"
-run/main_scene="res://scenes/Multiplayer.tscn"
+run/main_scene="res://ui/menu/MainMenu.tscn"
 run/low_processor_mode=true
 config/icon="res://icon.png"
 

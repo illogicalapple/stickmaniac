@@ -1,13 +1,11 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://fonts/Inter-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://ui/Paused.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ui/music/stopped.svg" type="Texture" id=2]
 [ext_resource path="res://ui/music/playing.svg" type="Texture" id=3]
 [ext_resource path="res://ui/singleplayer/GUI.gd" type="Script" id=4]
-[ext_resource path="res://addons/controller_icons/objects/TextureRect.gd" type="Script" id=5]
 [ext_resource path="res://ui/help/Help.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ui/HealthBar.tscn" type="PackedScene" id=7]
-[ext_resource path="res://addons/controller_icons/assets/key/esc.png" type="Texture" id=8]
 [ext_resource path="res://fonts/theme.tres" type="Theme" id=9]
 
 [sub_resource type="AnimatedTexture" id=8]
@@ -17,41 +15,6 @@ fps = 0.0
 frame_0/texture = ExtResource( 2 )
 frame_1/texture = ExtResource( 3 )
 frame_1/delay_sec = 0.0
-
-[sub_resource type="Animation" id=9]
-resource_name = "FadeIn"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.741176 ) ]
-}
-
-[sub_resource type="Animation" id=10]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 0 ) ]
-}
-
-[sub_resource type="DynamicFont" id=11]
-size = 72
-font_data = ExtResource( 1 )
 
 [sub_resource type="Animation" id=6]
 resource_name = "FadeIn"
@@ -111,51 +74,7 @@ text = "Quit to Menu"
 
 [node name="Help" parent="." instance=ExtResource( 6 )]
 
-[node name="Paused" type="ColorRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Paused"]
-anims/FadeIn = SubResource( 9 )
-anims/RESET = SubResource( 10 )
-
-[node name="Label" type="Label" parent="Paused"]
-margin_left = 112.0
-margin_top = 96.0
-margin_right = 374.0
-margin_bottom = 184.0
-custom_fonts/font = SubResource( 11 )
-text = "paused"
-
-[node name="Unpause" type="HBoxContainer" parent="Paused"]
-margin_left = 112.0
-margin_top = 224.0
-margin_right = 301.0
-margin_bottom = 264.0
-
-[node name="Label" type="Label" parent="Paused/Unpause"]
-margin_top = 10.0
-margin_right = 49.0
-margin_bottom = 30.0
-text = "press "
-
-[node name="TextureRect" type="TextureRect" parent="Paused/Unpause"]
-margin_left = 53.0
-margin_right = 93.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 40, 40 )
-texture = ExtResource( 8 )
-expand = true
-script = ExtResource( 5 )
-path = "ui_pause"
-
-[node name="Label2" type="Label" parent="Paused/Unpause"]
-margin_left = 97.0
-margin_top = 10.0
-margin_right = 189.0
-margin_bottom = 30.0
-text = " to unpause"
+[node name="Paused" parent="." instance=ExtResource( 1 )]
 
 [node name="Ded" type="ColorRect" parent="."]
 visible = false
@@ -168,5 +87,4 @@ anims/FadeIn = SubResource( 6 )
 anims/RESET = SubResource( 7 )
 
 [connection signal="pressed" from="MusicToggled" to="." method="_on_MusicToggled_pressed"]
-[connection signal="animation_finished" from="Paused/AnimationPlayer" to="." method="on_paused_animation_finished"]
 [connection signal="animation_finished" from="Ded/AnimationPlayer" to="." method="on_dead_anim_finished"]

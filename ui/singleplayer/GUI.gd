@@ -16,7 +16,6 @@ signal music_toggled
 func _ready():
 	$Ded.color = Color(255, 255, 255, 0)
 	root.get_node("Stickmin").connect("damage", self, "_on_Stickmin_damage")
-	$Paused.hide()
 
 func _on_Stickmin_damage(id, amount):
 	$HealthBar.value -= amount
@@ -38,17 +37,3 @@ func on_dead_anim_finished(anim_name):
 		print(global.song_time)
 		get_tree().change_scene("res://death_screen/DeathScreen.tscn")
 
-func _input(event):
-	if event.is_action_pressed("ui_pause"):
-		paused = !paused
-		get_tree().paused = paused
-		if paused:
-			$Paused.show()
-			$Paused/AnimationPlayer.play("FadeIn")
-		else:
-			$Paused/AnimationPlayer.play_backwards("FadeIn")
-
-
-func on_paused_animation_finished(anim_name):
-	if !paused:
-		$Paused.hide()

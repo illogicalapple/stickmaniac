@@ -8,6 +8,8 @@
 [node name="Root" type="Node"]
 script = ExtResource( 3 )
 
+[node name="Players" type="Node2D" parent="."]
+
 [node name="SoundPlayer" type="Node2D" parent="."]
 script = ExtResource( 2 )
 
