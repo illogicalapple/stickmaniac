@@ -9,6 +9,7 @@ signal damage(id, amount)
 #	emit_signal("damage", 0.1) (was for testing)
 
 func _ready():
+	if global.singleplayer: id = ""
 	#set_use_custom_integrator(true)
 	print("ready")
 

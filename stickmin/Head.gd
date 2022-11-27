@@ -13,7 +13,7 @@ func is_pressed(action):
 func _ready():
 	viewport_size = get_viewport_rect().size
 	if global.singleplayer:
-		print("singleplayer")
+		id = ""
 		position.x = viewport_size.x / 3
 		position.y = viewport_size.y / 2
 		$Label.queue_free()
