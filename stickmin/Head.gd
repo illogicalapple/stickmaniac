@@ -11,34 +11,38 @@ func is_pressed_float(action: String) -> float:
 		return 0.0
 
 func _ready():
+	var label := $Label as Label
+
 	viewport_size = get_viewport_rect().size
 	if global.singleplayer:
-		id = 0
+		id = -1
 		position.x = viewport_size.x / 3
 		position.y = viewport_size.y / 2
-		$Label.queue_free()
+		label.queue_free()
 	else:
 		id = get_parent().id
-		$Label.text = "p" + str(id + 1)
+		label.text = "p " + str(id + 1)
+
+		var color := "000000"
+
 		match id:
-			0:
-				$Label.add_color_override("font_color", Color("ff5f5f"))
-			1:
-				$Label.add_color_override("font_color", Color("5a95ed"))
-			2:
-				$Label.add_color_override("font_color", Color("56c24a"))
-			3:
-				$Label.add_color_override("font_color", Color("ffdc3b"))
+			0: color = "ff5f5f"
+			1: color = "5a95ed"
+			2: color = "56c24a"
+			3: color = "ffdc3b"
+
+		label.add_color_override("font_color", Color(color))
 
 func _process(delta: float):
-	var body: Node = get_node("Body")
+	var body := $Body
 
-	velocity.x += is_pressed_float("ui_right" + str(id)) - is_pressed_float("ui_left" + str(id))
-	velocity.y += is_pressed_float("ui_down" + str(id)) - is_pressed_float("ui_up" + str(id))
+	var s := str(id)
+	velocity.x += (is_pressed_float("ui_right" + s) - is_pressed_float("ui_left" + s)) * delta * 60.0
+	velocity.y += (is_pressed_float("ui_down" + s) - is_pressed_float("ui_up" + s)) * delta * 60.0
 	position += velocity * delta * 60.0
 	body.head_velocity = velocity
 
-	velocity *= 0.88
+	velocity *= pow(0.88 / 60.0, delta)
 
 	if velocity.x < 0:
 		body.gun_arm = 0
