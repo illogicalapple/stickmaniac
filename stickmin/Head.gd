@@ -1,5 +1,7 @@
 extends Sprite
 
+export var speed: float = 1.0
+
 var viewport_size: Vector2
 var velocity := Vector2(0, 0)
 var id: int = 0
@@ -37,8 +39,8 @@ func _process(delta: float):
 	var body := $Body
 
 	var s := str(id)
-	velocity.x += (is_pressed_float("ui_right" + s) - is_pressed_float("ui_left" + s)) * delta * 60.0
-	velocity.y += (is_pressed_float("ui_down" + s) - is_pressed_float("ui_up" + s)) * delta * 60.0
+	velocity.x += (is_pressed_float("ui_right" + s) - is_pressed_float("ui_left" + s)) * delta * 30.0 * speed
+	velocity.y += (is_pressed_float("ui_down" + s) - is_pressed_float("ui_up" + s)) * delta * 30.0 * speed
 	position += velocity * delta * 60.0
 	body.head_velocity = velocity
 
