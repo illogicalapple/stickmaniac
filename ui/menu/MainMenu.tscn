@@ -49,7 +49,6 @@ margin_bottom = 133.0
 text = "credits"
 
 [node name="CreditsPopup" parent="." instance=ExtResource( 2 )]
-visible = false
 
 [node name="LocalMenu" type="Popup" parent="."]
 visible = true
